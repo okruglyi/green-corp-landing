@@ -220,3 +220,7 @@ footer h3 {
         width: 75px;
     }
 }
+
+.animate__animated{
+    --animate-duration: 2s;
+}
