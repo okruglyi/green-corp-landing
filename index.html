@@ -14,16 +14,16 @@
 <header>
     <img class="header__logo" src="img/logo.svg">
     <div>
-        <a href="#contacts">Контакты</a>
-        <button>Заказать</button>
+        <a href="#form">Контакты</a>
+        <button type="button">Заказать</button>
     </div>
 </header>
 <section class="about">
     <canvas class="orb-canvas" id="orb-canvas"></canvas>
-    <div class="about__info animate__animated animate__fadeInLeft">
+    <div class="about__info animate__animated animate__fadeInLeft animate__slow">
         <h1>Солнечные панели GreenRobotic</h1>
         <p>Производите дешёвую экологически чистую электроэнергию из солнченого света</p>
-        <button>Узнать подробнее
+        <button class="more-button" href="#features">Узнать подробнее
             <i class="fas fa-solid fa-angle-right"></i>
         </button>
     </div>
@@ -32,7 +32,7 @@
         <img class="about__image" src="img/solar-panel.png">
     </div>
 </section>
-<section class="features">
+<section class="features" id="features">
     <div class="cards">
         <div class="card">
           <div class="card__logo yellow">
@@ -108,7 +108,7 @@
       </div>
     </div>
   </section>
-<section class="form">
+<section class="form" id="form">
     <div class="form__container">
         <h1>Оставьте свои контакты</h1>
         <p>Поможем подобрать модель.<br>

@@ -3,10 +3,17 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    position: sticky;
+    position: fixed;
     top: 0px;
-    background-color: white;
+    background-color: transparent;
     z-index: 1;
+    left: 0px;
+    right: 0px;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+.header__scrolled {
+    background-color: white;
+    box-shadow: 0 12px 34px -11px rgb(65 62 101 / 10%);
 }
 body {
     font-family: 'Raleway', sans-serif;
@@ -49,7 +56,7 @@ button {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 115px 0px;
+    padding: 200px 0px 115px 0px;
     background: url('img/back.png') no-repeat;
     background-position: center;
     background-size: cover;
@@ -321,7 +328,7 @@ footer h3 {
         padding-right: 10px;
     }
     .about, .form, footer{
-        padding-top: 50px;
+        padding-top: 200px;
         padding-bottom: 50px;
     }
     .features{

@@ -1,4 +1,5 @@
 const INCREASE_NUMBER_ANIMATION_SPEED = 50;
+let animationInited = false;
 
 function increaseNumberAnimationStep(i, element, endNumber) {
     if (i <= endNumber){
@@ -21,7 +22,6 @@ function initIncreaseNumberAnimation() {
     
     increaseNumberAnimationStep(0,element,5000);
 }
-initIncreaseNumberAnimation();
 
 document.querySelector('#budget').addEventListener('change', function 
     handleSelectChange(event) {
@@ -44,3 +44,38 @@ document.querySelector('#budget').addEventListener('change', function
             document.querySelector('.form form').removeChild(otherInput);
         }
     });
+
+function updateScroll() {
+    if(window.scrollY > 0){
+        document.querySelector('header').classList.add('header__scrolled');
+
+        let countElementPosition = document.querySelector('.features__clients-count').offsetTop;
+        let windowTopPosition = countElementPosition + document.querySelector('.features__clients-count').clientHeight;
+        let windowBottomPosition = window.scrollY + window.innerHeight;
+
+        if(windowBottomPosition >= countElementPosition && countElementPosition <= windowTopPosition && !animationInited){
+            animationInited = true;
+            initIncreaseNumberAnimation();
+        }
+    } else {
+        document.querySelector('header').classList.remove('header__scrolled');
+    }
+}
+window.addEventListener('scroll', updateScroll);
+
+function addSmoothScroll(link) {
+    link.addEventListener('click', onLinkClick);
+  }
+
+function onLinkClick(event) {
+    event.preventDefault();
+
+    document.querySelector(event.target.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(el => {
+    addSmoothScroll(el);
+});
+addSmoothScroll(document.querySelector('.more-button'));
